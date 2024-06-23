@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hasil Presensi</title>
+    <link rel="icon" href="{{ url_for('static', filename='icon.png') }}" type="image/png">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Hasil Presensi</h1>
+        <h2>Presensi Berhasil!! </h2>
+        <p>Nama Pegawai: {{ nama_pegawai }}</p>
+        <p>Tanggal Presensi: {{ tanggal_presensi }}</p>
+        <p>Waktu Presensi: {{ waktu_presensi }}</p>
+        <img src="{{ url_for('static', filename='captured_image.jpg') }}" alt="Captured Image">
+        <form action="{{ url_for('index') }}" method="get">
+            <button type="submit" class="button">Presensi Ulang</button>
+        </form>
+    </div>
+</body>
+</html>

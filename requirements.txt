@@ -1,0 +1,15 @@
+flask  
+numpy 
+tensorflow
+keras 
+mysql.connector
+datetime
+cv2
+random
+shutil
+os
+pandas 
+matplotlib.pyplot 
+time
+
+    

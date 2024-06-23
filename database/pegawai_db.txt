@@ -1,0 +1,13 @@
+--Create database for system
+
+CREATE DATABASE pegawai_db;
+
+USE pegawai_db;
+
+CREATE TABLE pegawai (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    id_pegawai VARCHAR(50) NOT NULL,
+    tanggal_presensi DATE NOT NULL,
+    waktu_presensi TIME NOT NULL,
+    berhasil_presensi BOOLEAN NOT NULL
+);

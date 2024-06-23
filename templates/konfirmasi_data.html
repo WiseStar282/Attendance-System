@@ -1,0 +1,33 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Konfirmasi</title>
+    <link rel="icon" href="{{ url_for('static', filename='icon.png') }}" type="image/png">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script>
+        function trainModel() {
+            document.getElementById('trainStatus').innerText = "Model sedang dilatih ulang...";
+            fetch("/retrain_model", { method: "POST" })
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('trainStatus').innerText = "Model berhasil dilatih kembali!";
+                })
+                .catch(error => {
+                    console.error('Error during model retraining:', error);
+                    document.getElementById('trainStatus').innerText = "Terjadi kesalahan saat melatih ulang model.";
+                });
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Data Pegawai Baru Berhasil Ditambahkan</h1>
+        <form onsubmit="trainModel(); return false;">
+            <button type="submit" class="button">Latih Model Kembali</button>
+        </form>
+        <p id="trainStatus"></p>
+        <form action="{{ url_for('index') }}" method="get">
+            <button type="submit" class="button">Presensi</button>
+        </form>
+    </div>
+</body>

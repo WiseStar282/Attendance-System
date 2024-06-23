@@ -1,0 +1,55 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tambah Data Pegawai</title>
+    <link rel="icon" href="{{ url_for('static', filename='icon.png') }}" type="image/png">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Tambah Data Pegawai Baru</h1>
+        <form action="/save_images" method="post">
+            <label for="id_pegawai">ID Pegawai:</label>
+            <input type="text" id="id_pegawai" name="id_pegawai" required>
+            <div class="video-container">
+                <img src="{{ url_for('raw_video_feed') }}" id="videoFeed">
+            </div>
+            <button type="button" class="button" id="captureButton">Ambil Gambar</button>
+            <div id="capturedImages" class="captured-images"></div>
+            
+            <button type="submit" class="button" id="saveButton">Simpan Gambar</button>
+        </form>
+    </div>
+    <script>
+        let captureButton = document.getElementById('captureButton');
+        let saveButton = document.getElementById('saveButton');
+        let capturedImages = document.getElementById('capturedImages');
+        let images = [];
+
+        captureButton.addEventListener('click', () => {
+            if (images.length < 10) {
+                fetch('/ambil_images')
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.image_path) {
+                            let img = document.createElement('img');
+                            img.src = data.image_path;
+                            img.className = 'captured-image';
+                            capturedImages.appendChild(img);
+                            images.push(data.image_path);
+                        }
+                    });
+            } else {
+                alert('Anda sudah mengambil 10 gambar.');
+            }
+        });
+
+        saveButton.addEventListener('click', (event) => {
+            if (images.length !== 10) {
+                event.preventDefault();
+                alert('Harap ambil tepat 10 gambar.');
+            }
+        });
+    </script>
+</body>
+

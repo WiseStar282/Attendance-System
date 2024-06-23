@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FaceAttend</title>
+    <link rel="icon" href="{{ url_for('static', filename='icon.png') }}" type="image/png">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>FaceAttend</h1>
+        <div class="video-container">
+            <img src="{{ url_for('video_feed') }}" id="videoFeed">
+        </div>
+        <form action="/capture" method="post">
+            <button type="submit" class="button">Presensi</button>
+        </form>
+        <form action="/pegawai_baru" method="get">
+            <button type="submit" class="button">Tambah Data</button>
+        </form>
+    </div>
+</body>
+</html>

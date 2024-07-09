@@ -1,5 +1,5 @@
-# Attedance System
-Projek ini adalah sistem presensi berbasis pengenalan wajah yang dirancang untuk memudahkan pencatatan kehadiran pegawai.
+# FaceAttend
+FaceAttend adalah sistem presensi berbasis pengenalan wajah yang dirancang untuk memudahkan pencatatan kehadiran pegawai.
 
 Sistem ini bertujuan untuk mengembangkan sistem _Face Recognition_ yang akan terintegrasi dengan sistem presensi yang sudah ada, sehingga memungkinkan pencatatan kehadiran pegawai secara otomatis saat wajah mereka terdeteksi.
 
